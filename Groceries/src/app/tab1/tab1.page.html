@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Grocery List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item>
+        {{ item }}
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="removeItem(item)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="primary" (click)="editItem(item)">
+          <ion-icon name="create"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-item>
+    <ion-label position="stacked">New Item</ion-label>
+    <ion-input [(ngModel)]="newItem" placeholder="Enter a new item"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="addItem()">Add Item</ion-button>
+</ion-content>
